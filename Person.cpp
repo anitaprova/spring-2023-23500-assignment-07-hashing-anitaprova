@@ -3,6 +3,11 @@
 #include <iostream>
 #include "Person.h"
 
+Person::Person(){
+	this->first = "";
+	this->last = "";
+}
+
 Person::Person(std::string first, std::string last, int num)
 {
 	this->first = first;
@@ -12,7 +17,7 @@ Person::Person(std::string first, std::string last, int num)
 
 std::string Person::get_name()
 {
-	return last + ", " + first;
+	return last + first;
 }
 
 int Person::get_id()

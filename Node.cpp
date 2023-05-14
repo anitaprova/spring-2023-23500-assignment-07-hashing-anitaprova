@@ -1,25 +1,24 @@
 #include <iostream>
+#include <string>
 #include "Node.h"
+#include "Person.h"
 
-Node::Node() : next(nullptr)
+Node::Node(Person p)
 {
-}
-
-Node::Node(std::string data, Node *next)
-{
-	this->data = data;
-	this->next = next;
-}
-
-Node::Node(std::string data)
-{
-	this->data = data;
+	this->p = p;
 	this->next = nullptr;
 }
 
-void Node::setData(std::string data)
+Node::Node(std::string first, std::string last, int num)
 {
-	this->data = data;
+	Person p = Person(first, last,num);
+	this->p = p;
+}
+
+Node::Node(Person p, Node *next)
+{
+	this->p = p;
+	this->next = next;
 }
 
 void Node::setNext(Node *next)
@@ -27,9 +26,9 @@ void Node::setNext(Node *next)
 	this->next = next;
 }
 
-std::string Node::getData()
+Person Node::getPerson()
 {
-	return this->data;
+	return this->p;
 }
 
 Node *Node::getNext()

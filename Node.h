@@ -1,19 +1,20 @@
 #pragma once
+#include "Person.h"
 
 class Node
 {
 private:
-	std::string data;
+	Person p;
 	Node *next;
 
 public:
 	Node();
-	Node(std::string data);
-	Node(std::string data, Node *next);
-
-	void setData(std::string data);
+	Node(Person p);
+	Node(std::string first, std::string last, int num);
+	Node(Person p, Node *next);
+	
 	void setNext(Node *next);
 
-	std::string getData();
+	Person getPerson();
 	Node *getNext();
 };

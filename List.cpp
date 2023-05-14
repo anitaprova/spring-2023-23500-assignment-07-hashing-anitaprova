@@ -12,14 +12,14 @@ List::~List()
 	delete head;
 }
 
-void List::insert(std::string data)
+void List::insert(Person p)
 {
-	Node *tmp = new Node(data);
+	Node *tmp = new Node(p);
 	tmp->setNext(head);
 	head = tmp;
 }
 
-void List::insert(int loc, std::string data)
+void List::insert(int loc, Person data)
 {
 	Node *walker, *trailer;
 	walker = this->head; // start of the list
@@ -64,7 +64,7 @@ int List::length()
 	return count;
 }
 
-std::string List::get(int loc)
+Person List::get(int loc)
 {
 	Node *tmp = this->head;
 	int i = 0;
@@ -73,15 +73,15 @@ std::string List::get(int loc)
 		tmp = tmp->getNext();
 		i++;
 	}
-	return tmp->getData();
+	return tmp->getPerson();
 }
 
-bool List::contains(std::string s)
+bool List::contains(Person s)
 {
 	Node *tmp = this->head;
 	while (tmp != nullptr)
 	{
-		if (tmp->getData() == s)
+		if (tmp->getPerson().get_name() == s.get_name())
 		{
 			return true;
 			break;
@@ -115,6 +115,11 @@ void List::remove(int loc)
 	}
 }
 
+Node *List::gethead()
+{
+	return head;
+}
+
 std::string List::toString()
 {
 	Node *tmp = this->head;
@@ -122,7 +127,7 @@ std::string List::toString()
 	result = result + "head-->";
 	while (tmp != nullptr)
 	{
-		result = result + tmp->getData();
+		result = result + tmp->getPerson().get_name();
 		result = result + "-->";
 		tmp = tmp->getNext();
 	}
