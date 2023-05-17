@@ -32,7 +32,7 @@ void Dictionary::insert(Person p)
 	}
 }
 
-std::string Dictionary::get(Person p)
+Person Dictionary::get(Person p)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -43,12 +43,12 @@ std::string Dictionary::get(Person p)
 			Person w = walker->getPerson();
 			if (w.get_name() == p.get_name() && w.get_id() == w.get_id())
 			{
-				return p.get_name();
+				return w;
 			}
 			walker = walker->getNext();
 		}
 	}
-	return "nullptr";
+	throw NOT_FOUND;
 }
 
 std::string Dictionary::getKeys() // has to be ALL first and last names

@@ -3,6 +3,8 @@
 #include "List.h"
 #include "Person.h"
 
+#define NOT_FOUND 1
+
 class Dictionary
 {
 private:
@@ -14,7 +16,7 @@ public:
 	~Dictionary();
 
 	void insert(Person p);
-	std::string get(Person p);
+	Person get(Person p);
 
 	std::string getKeys();
 	std::string toString();

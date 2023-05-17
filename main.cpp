@@ -16,5 +16,15 @@ int main()
 	std::cout << d->getKeys() << "\n";
 	std::cout << d->toString() << "\n";
 
+	Person p4 = Person("george", "foundler", 4);
+	try
+	{
+		d->get(p4);
+	}
+	catch (int e)
+	{
+		std::cout << "error code: " << e << "\n";
+	}
+
 	return 0;
 }
