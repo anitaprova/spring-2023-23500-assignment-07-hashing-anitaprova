@@ -26,5 +26,15 @@ int main()
 		std::cout << "error code: " << e << "\n";
 	}
 
+	Person p5 = Person("darwin", "clayton", 4);
+	try
+	{
+		d->get(p5);
+	}
+	catch (int e)
+	{
+		std::cout << "error code: " << e << "\n";
+	}
+
 	return 0;
 }
