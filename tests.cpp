@@ -8,8 +8,9 @@ TEST_CASE("constrcutur")
 
 	// shows the empty array
 	CHECK(d->toString() == "head-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\n");
+	CHECK(d->getKeys() == "");
 }
-/*
+
 TEST_CASE("deconstructor")
 {
 	Dictionary *d = new Dictionary();
@@ -27,11 +28,15 @@ TEST_CASE("insert")
 	Person p4 = Person("timmy", "turner", 4);
 
 	d->insert(p1);
-	d->insert(p2);
-	d->insert(p3);
+	CHECK(d->getKeys() == "landstonamy ");
 
-	CHECK(d->toString() == "head-->nullptr\nhead-->burgerssbob-->landstonamy-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->laketim-->nullptr\nhead-->nullptr\nhead-->nullptr\n");
+	d->insert(p2);
+	CHECK(d->getKeys() == "burgerssbob landstonamy ");
+	
+	d->insert(p3);
 	CHECK(d->getKeys() == "burgerssbob landstonamy laketim ");
+	
+	CHECK(d->toString() == "head-->nullptr\nhead-->burgerssbob-->landstonamy-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->laketim-->nullptr\nhead-->nullptr\nhead-->nullptr\n");
 }
 
 TEST_CASE("get")
@@ -43,8 +48,8 @@ TEST_CASE("get")
 	d->insert(p1);
 	d->insert(p2);
 
-	// CHECK(d->get(p1).get_name() == "franklinbenjamin");
-	// CHECK(d->get(p2).get_name() == "rooseveltteddy");
+	CHECK(d->get(p1).get_name() == "franklinbenjamin");
+	CHECK(d->get(p2).get_name() == "rooseveltteddy");
 }
 
 
@@ -64,4 +69,4 @@ TEST_CASE("getKeys")
 	d->insert(p5);
 
 	CHECK(d->getKeys() == "burgerssbob landstonamy thunderboltzeus hueamy kimrosa ");
-}*/
+}
