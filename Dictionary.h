@@ -16,7 +16,7 @@ public:
 	~Dictionary();
 
 	void insert(Person p);
-	Person get(Person p);
+	Person get(std::string fname, std::string lname);
 
 	std::string getKeys();
 	std::string toString();

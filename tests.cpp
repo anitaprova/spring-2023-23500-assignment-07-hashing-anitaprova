@@ -6,7 +6,7 @@ TEST_CASE("constrcutur")
 {
 	Dictionary *d = new Dictionary();
 
-	// shows the empty array
+	// shows the empty array with empty linked lists
 	CHECK(d->toString() == "head-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\nhead-->nullptr\n");
 	CHECK(d->getKeys() == "");
 }
@@ -48,8 +48,8 @@ TEST_CASE("get")
 	d->insert(p1);
 	d->insert(p2);
 
-	CHECK(d->get(p1).get_name() == "franklinbenjamin");
-	CHECK(d->get(p2).get_name() == "rooseveltteddy");
+	CHECK(d->get("benjamin", "franklin").get_name() == "franklinbenjamin");
+	CHECK(d->get("teddy", "roosevelt").get_name() == "rooseveltteddy");
 }
 
 

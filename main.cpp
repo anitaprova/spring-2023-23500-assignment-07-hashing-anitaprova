@@ -15,21 +15,21 @@ int main()
 	d->insert(p3);
 	std::cout << d->getKeys() << "\n";
 	std::cout << d->toString() << "\n";
+	std::cout << d->get("amy", "landston").get_name() << "\n";
 
 	Person p4 = Person("george", "foundler", 4);
 	try
 	{
-		d->get(p4);
+		d->get("george", "foundler");
 	}
 	catch (int e)
 	{
 		std::cout << "error code: " << e << "\n";
 	}
 
-	Person p5 = Person("darwin", "clayton", 4);
 	try
 	{
-		d->get(p5);
+		d->get("darwin", "clayton");
 	}
 	catch (int e)
 	{
